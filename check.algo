@@ -1,0 +1,42 @@
+PROCEDURE inssort(var arr:tab,n:INTEGER)
+VAR
+    i,aux,j:INTEGER
+BEGIN
+    FOR i FROM 1 TO n-1  DO
+        aux:=arr[i]
+        j:=i-1;
+        WHILE (j>=0 and arr[j]>aux) DO
+            arr[j+1]=arr[j]
+            j:=j-1;
+        END_WHILE
+        arr[j+1]:=aux
+    END_FOR
+END
+PROCEDURE printarr(arr:tab,n:INTEGER)
+VAR
+    i:INTEGER
+BEGIN
+    FOR i FROM 1 TO n DO
+        write(arr[i]," ")
+    END_FOR
+END
+PROCEDURE creatarr(var arr:tab,n:INTEGER)
+VAR
+    i:INTEGER
+BEGIN
+    FOR i FROM 1 TO n  DO
+        write("donner la valeur n°",i," : ")
+    END_FOR
+END
+ALGORITHM search
+VAR
+    tab : ARRAY_OF type[INTEGER];
+    n:INTEGER;
+BEGIN
+    writ("donner la langeur du tableau: ")
+    read(n)
+    creatarr(arr,n)
+    inssort(arr,n)
+    printarr(arr,n)
+
+END
